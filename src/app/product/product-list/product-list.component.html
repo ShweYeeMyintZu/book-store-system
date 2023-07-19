@@ -1,0 +1,22 @@
+<div *ngIf="(bookService.books$ | async) as books">
+
+  <div class="row" >
+    <div class="col-md-4" *ngFor="let book of books">
+      <div class="card">
+        <img [src]="book.imagUrl" alt="image" class="card-img-top">
+        <div class="card-body">
+          <div class="card-title">{{book.title}}</div>
+          <p class="card-text">{{book.authorName}}</p>
+
+          <div class="d-flex justify-content-between">
+            <small class="card-text">${{book.price}}</small>
+            <small class="card-text">${{book.publisher}}</small>
+          </div>
+
+          <button class="btn btn-primary btn-block my-2" [routerLink]="['/books',book.id]">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

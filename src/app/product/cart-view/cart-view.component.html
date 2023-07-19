@@ -1,0 +1,23 @@
+<div *ngIf="(cartService.cart$ | async) as carts">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Author Name</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cart of carts">
+      <td>{{cart.id}}</td>
+      <td>{{cart.title}}</td>
+      <td>{{cart.authorName}}</td>
+      <td>{{cart.price}}</td>
+      <td><button class="btn btn-outline-danger" (click)="removeFromCart(cart.id)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

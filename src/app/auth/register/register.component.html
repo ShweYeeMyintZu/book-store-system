@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <form #myForm="ngForm" (ngSubmit)="myForm.form.valid && register()" novalidate>
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+      {{errorMessage}}
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name">
+     </div>
+    <div class="form-group">
+      <label for="username">UserName</label>
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" id="password" name="password" [(ngModel)]="user.password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+  {{user | json}}
+</div>
